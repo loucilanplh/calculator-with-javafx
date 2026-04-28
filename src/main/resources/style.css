@@ -1,0 +1,104 @@
+/* Dark aesthetic palette */
+.root {
+    -fx-background-color: #1a1a1a;
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+}
+.main-container, .history-container {
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-alignment: center;
+}
+.display-container {
+    -fx-background-color: #242424;
+    -fx-background-radius: 15;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 5);
+}
+.history-display {
+    -fx-text-fill: #9CA3AF;
+    -fx-font-size: 16px;
+    -fx-alignment: center-right;
+    -fx-pref-width: 400px;
+}
+.main-display {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 48px;
+    -fx-background-color: transparent;
+    -fx-alignment: center-right;
+    -fx-font-weight: bold;
+    -fx-pref-width: 400px;
+    -fx-border-width: 0;
+}
+.main-display:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+}
+.button {
+    -fx-font-size: 20px;
+    -fx-pref-width: 70px;
+    -fx-pref-height: 70px;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-transition: all 0.2s ease-in-out;
+}
+.button:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(255,255,255,0.1), 5, 0, 0, 0);
+}
+.num-btn {
+    -fx-background-color: #333333;
+    -fx-text-fill: white;
+}
+.num-btn:hover { -fx-background-color: #404040; }
+.num-btn:pressed { -fx-background-color: #555555; }
+
+.op-btn {
+    -fx-background-color: #F59E0B;
+    -fx-text-fill: white;
+}
+.op-btn:hover { -fx-background-color: #D97706; }
+.op-btn:pressed { -fx-background-color: #B45309; }
+
+.func-btn {
+    -fx-background-color: #374151;
+    -fx-text-fill: #A7F3D0;
+    -fx-font-size: 16px;
+}
+.func-btn:hover { -fx-background-color: #4B5563; }
+
+.clear-btn {
+    -fx-background-color: #EF4444;
+    -fx-text-fill: white;
+}
+.clear-btn:hover { -fx-background-color: #DC2626; }
+
+.eq-btn {
+    -fx-background-color: #10B981;
+    -fx-text-fill: white;
+}
+.eq-btn:hover { -fx-background-color: #059669; }
+
+.util-btn {
+    -fx-background-color: #4B5563;
+    -fx-text-fill: white;
+}
+.util-btn:hover { -fx-background-color: #6B7280; }
+
+.history-title {
+    -fx-text-fill: white;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+.history-list {
+    -fx-background-color: #242424;
+    -fx-background-radius: 10;
+}
+.history-list .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-padding: 10;
+}
+.history-list .list-cell:filled:hover {
+    -fx-background-color: #333333;
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<VBox styleClass="main-container" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controller.CalculatorController">
+    <!-- Display -->
+    <VBox styleClass="display-container" spacing="5">
+        <Label fx:id="historyDisplay" styleClass="history-display"/>
+        <TextField fx:id="mainDisplay" styleClass="main-display" editable="false"/>
+    </VBox>
+    <!-- Keys Grid -->
+    <GridPane styleClass="keypad" hgap="10" vgap="10" alignment="CENTER">
+        <!-- Row 0 -->
+        <Button text="sin" onAction="#handleAction" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="func-btn"/>
+        <Button text="cos" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="func-btn"/>
+        <Button text="tan" onAction="#handleAction" GridPane.columnIndex="2" GridPane.rowIndex="0" styleClass="func-btn"/>
+        <Button text="pi" onAction="#handleAction" GridPane.columnIndex="3" GridPane.rowIndex="0" styleClass="func-btn"/>
+        <Button text="e" onAction="#handleAction" GridPane.columnIndex="4" GridPane.rowIndex="0" styleClass="func-btn"/>
+        <!-- Row 1 -->
+        <Button text="log" onAction="#handleAction" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="func-btn"/>
+        <Button text="ln" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="func-btn"/>
+        <Button text="sqrt" onAction="#handleAction" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="func-btn"/>
+        <Button text="^2" onAction="#handleAction" GridPane.columnIndex="3" GridPane.rowIndex="1" styleClass="func-btn"/>
+        <Button text="^3" onAction="#handleAction" GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="func-btn"/>
+        <!-- Row 2 -->
+        <Button text="(" onAction="#handleAction" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="op-btn"/>
+        <Button text=")" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="op-btn"/>
+        <Button text="C" onAction="#handleClear" GridPane.columnIndex="2" GridPane.rowIndex="2" styleClass="clear-btn"/>
+        <Button text="⌫" onAction="#handleBackspace" GridPane.columnIndex="3" GridPane.rowIndex="2" styleClass="clear-btn"/>
+        <Button text="÷" onAction="#handleAction" GridPane.columnIndex="4" GridPane.rowIndex="2" styleClass="op-btn"/>
+        <!-- Row 3 -->
+        <Button text="7" onAction="#handleAction" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="num-btn"/>
+        <Button text="8" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="num-btn"/>
+        <Button text="9" onAction="#handleAction" GridPane.columnIndex="2" GridPane.rowIndex="3" styleClass="num-btn"/>
+        <Button text="x" onAction="#handleAction" GridPane.columnIndex="3" GridPane.rowIndex="3" styleClass="op-btn"/>
+        <Button text="-" onAction="#handleAction" GridPane.columnIndex="4" GridPane.rowIndex="3" styleClass="op-btn"/>
+        <!-- Row 4 -->
+        <Button text="4" onAction="#handleAction" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="num-btn"/>
+        <Button text="5" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="num-btn"/>
+        <Button text="6" onAction="#handleAction" GridPane.columnIndex="2" GridPane.rowIndex="4" styleClass="num-btn"/>
+        <Button text="+" onAction="#handleAction" GridPane.columnIndex="3" GridPane.rowIndex="4" styleClass="op-btn"/>
+        <Button text="^" onAction="#handleAction" GridPane.columnIndex="4" GridPane.rowIndex="4" styleClass="op-btn"/>
+        <!-- Row 5 -->
+        <Button text="1" onAction="#handleAction" GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="num-btn"/>
+        <Button text="2" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="5" styleClass="num-btn"/>
+        <Button text="3" onAction="#handleAction" GridPane.columnIndex="2" GridPane.rowIndex="5" styleClass="num-btn"/>
+        <Button text="=" onAction="#handleCalculate" GridPane.columnIndex="3" GridPane.rowIndex="5" GridPane.columnSpan="2" styleClass="eq-btn" maxWidth="Infinity"/>
+        <!-- Row 6 -->
+        <Button text="Hist" onAction="#showHistory" GridPane.columnIndex="0" GridPane.rowIndex="6" styleClass="util-btn"/>
+        <Button text="0" onAction="#handleAction" GridPane.columnIndex="1" GridPane.rowIndex="6" styleClass="num-btn"/>
+        <Button text="." onAction="#handleAction" GridPane.columnIndex="2" GridPane.rowIndex="6" styleClass="num-btn"/>
+        <Button text="a/b" onAction="#handleFraction" GridPane.columnIndex="3" GridPane.rowIndex="6" GridPane.columnSpan="2" styleClass="util-btn" maxWidth="Infinity"/>
+    </GridPane>
+</VBox>

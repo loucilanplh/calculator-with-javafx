@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controller.HistoryController" styleClass="history-container" stylesheets="@../style.css" spacing="15">
+    <Label text="Calculation History" styleClass="history-title" />
+    <ListView fx:id="historyListView" VBox.vgrow="ALWAYS" styleClass="history-list"/>
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Clear History" onAction="#handleClearHistory" styleClass="clear-btn" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button text="Back" onAction="#handleBack" styleClass="util-btn" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    </HBox>
+</VBox>
