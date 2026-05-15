@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<VBox xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controller.HistoryController" styleClass="history-container" stylesheets="@../style.css" spacing="15">
-    <Label text="Calculation History" styleClass="history-title" />
-    <ListView fx:id="historyListView" VBox.vgrow="ALWAYS" styleClass="history-list"/>
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Clear History" onAction="#handleClearHistory" styleClass="clear-btn" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-        <Button text="Back" onAction="#handleBack" styleClass="util-btn" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
-    </HBox>
-</VBox>
+<StackPane fx:id="rootPane" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculator.Controller.HistoryController">
+    <VBox styleClass="main-container">
+        <!-- Header -->
+        <HBox styleClass="header">
+            <Button text="🕘" styleClass="icon-btn" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="CALC" styleClass="header-title" />
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox spacing="10">
+                <Button fx:id="themeToggleBtn" text="☀️" onAction="#toggleTheme" styleClass="icon-btn" />
+                <Button text="🗑" onAction="#handleClearHistory" styleClass="icon-btn" />
+                <Button text="⚙" styleClass="icon-btn" />
+            </HBox>
+        </HBox>
+
+        <VBox spacing="10" VBox.vgrow="ALWAYS" style="-fx-padding: 0 25;">
+            <Label text="RECENT CALCULATIONS" styleClass="active-mode-label" />
+            
+            <ListView fx:id="historyListView" VBox.vgrow="ALWAYS" styleClass="history-list" />
+        </VBox>
+
+        <!-- Bottom Navigation -->
+        <HBox styleClass="bottom-bar" alignment="CENTER" spacing="40">
+             <VBox alignment="CENTER" spacing="5">
+                <Button text="🕘" styleClass="icon-btn" />
+                <Label text="History" styleClass="active-mode-label" />
+             </VBox>
+             <VBox alignment="CENTER" spacing="5">
+                <Button text="🔢" onAction="#handleBack" styleClass="icon-btn" />
+                <Label text="Calculator" styleClass="active-mode-label" />
+             </VBox>
+             <VBox alignment="CENTER" spacing="5">
+                <Button text="⚙" styleClass="icon-btn" />
+                <Label text="Settings" styleClass="active-mode-label" />
+             </VBox>
+        </HBox>
+    </VBox>
+    
+    <!-- Floating Action Button -->
+    <Button text="+" styleClass="fab" StackPane.alignment="BOTTOM_RIGHT">
+        <StackPane.margin>
+            <Insets bottom="80" right="25" />
+        </StackPane.margin>
+    </Button>
+</StackPane>

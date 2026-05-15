@@ -4,11 +4,13 @@ import calculator.CalculatorApp;
 import calculator.service.CalculatorEngine;
 import calculator.service.FractionFormatter;
 import calculator.service.HistoryManager;
+import calculator.service.ThemeManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import java.io.IOException;
 
 public class CalculatorController {
@@ -19,22 +21,55 @@ public class CalculatorController {
     @FXML
     private TextField mainDisplay;
 
+    @FXML
+    private StackPane rootPane;
+
+    @FXML
+    private Button themeToggleBtn;
+
     private boolean isFractionMode = false;
     private double lastResult = 0;
     private boolean isResultShowing = false;
 
     @FXML
+    public void initialize() {
+        ThemeManager.setTheme(rootPane);
+        updateThemeIcon();
+    }
+
+    @FXML
+    private void toggleTheme() {
+        boolean isLight = ThemeManager.toggleTheme(rootPane);
+        updateThemeIcon();
+    }
+
+    private void updateThemeIcon() {
+        themeToggleBtn.setText(ThemeManager.isLightMode() ? "🌙" : "☀️");
+    }
+
+    @FXML
     private void handleAction(ActionEvent event) {
-        if (isResultShowing) {
-            mainDisplay.clear();
-            isResultShowing = false;
-        }
         Button source = (Button) event.getSource();
         String text = source.getText();
+        
+        if (isResultShowing) {
+            // If it's an operator or percentage, allow appending to the result
+            if ("+-x÷%xⁿ".contains(text)) {
+                isResultShowing = false;
+            } else {
+                mainDisplay.clear();
+                isResultShowing = false;
+            }
+        }
         
         switch (text) {
             case "x": mainDisplay.appendText("*"); break;
             case "÷": mainDisplay.appendText("/"); break;
+            case "π": mainDisplay.appendText("pi"); break;
+            case "xⁿ": mainDisplay.appendText("^"); break;
+            case "lg": mainDisplay.appendText("log("); break;
+            case "√": mainDisplay.appendText("sqrt("); break;
+            case "1/x": mainDisplay.appendText("1/("); break;
             case "sin":
             case "cos":
             case "tan":
